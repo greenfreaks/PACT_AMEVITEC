@@ -1,5 +1,5 @@
 <?php
-class registroPropiedadIntelectualmodel extends Model{
+class registroPropiedadIntelectualModel extends Model{
     public function __construct()
     {
         parent::__construct();
@@ -20,24 +20,132 @@ class registroPropiedadIntelectualmodel extends Model{
             //echo $e;
             return false;
         }
-    }
+    } //End function
 
-    function getSectoresIndustrialesModel(){
+    // Obtener Todos los sectores
+
+    function getAllSectoresModel(){
         $allSectoresIndustriales=[];
         try{
-            $querySectores = $this->db->connect()->prepare("SELECT * FROM uci_industria_labs");
+            $querySectores = $this->db->connect()->prepare("SELECT * FROM sector_scian");
             $querySectores->execute();
             while($rowSectores = $querySectores->fetch()){
-               $sector = array();
-               $sector['id_industria'] = $rowSectores['id_industria'];
-               $sector['nombre_industria'] = $rowSectores['nombre_industria'];
+               $sectores = array();
+               $sectores['idsector_scian'] = $rowSectores['idsector_scian'];
+               $sectores['sector_scian'] = $rowSectores['sector_scian'];
 
-               array_push($allSectoresIndustriales, $sector);
+               array_push($allSectoresIndustriales, $sectores);
             }
             return $allSectoresIndustriales;
         }catch(PDOException $e){
             return[];
         }
+    } //End function
+
+    // Obtener Tipos de Propiedad Intelectual.
+
+    function getAllTipoPropiedadModel(){
+        $allTipoPropiedad=[];
+        try{
+            $queryTipoPropiedad = $this->db->connect()->prepare("SELECT * FROM tec_tipo_propiedad_intelectual");
+            $queryTipoPropiedad->execute();
+            while($rowTipoPropiedad = $queryTipoPropiedad->fetch()){
+               $tipoPropiedad = array();
+               $tipoPropiedad['id_tipoPropiedadIntelectual'] = $rowTipoPropiedad['id_tipoPropiedadIntelectual'];
+               $tipoPropiedad['nombre_tipoPropiedadIntelectual'] = $rowTipoPropiedad['nombre_tipoPropiedadIntelectual'];
+
+               array_push($allTipoPropiedad, $tipoPropiedad);
+            }
+            return $allTipoPropiedad;
+        }catch(PDOException $e){
+            return[];
+        }
+    } //End function
+
+    // Obtener Estatus de Propiedad Intelectual.
+
+    function getEstatusPropiedadModel(){
+        $estatusPropiedad=[];
+        try{
+            $queryEstatusPropiedad = $this->db->connect()->prepare("SELECT * FROM tec_propiedad_intelectual_estatus");
+            $queryEstatusPropiedad->execute();
+            while($rowEstatusPropiedad = $queryEstatusPropiedad->fetch()){
+               $estatus = array();
+               $estatus['id_estatus'] = $rowEstatusPropiedad['id_estatus'];
+               $estatus['nombre_estatus'] = $rowEstatusPropiedad['nombre_estatus'];
+
+               array_push($estatusPropiedad, $estatus);
+            }
+            return $estatusPropiedad;
+        }catch(PDOException $e){
+            return[];
+        }
+    } //End function
+
+    public function getRegionesModel(){
+        $arrayRegiones = [];
+        try{
+            $queryRegiones = $this->db->connect()->prepare("SELECT * FROM ubicacion_region");
+            $queryRegiones->execute();
+
+            while($rowRegiones = $queryRegiones->fetch()){
+                $region = array();
+                $region['id'] = $rowRegiones['id_region'];
+                $region['nombre'] = $rowRegiones['nombre_region'];
+
+                array_push($arrayRegiones, $region);
+            }
+            return $arrayRegiones;
+        }catch(PDOException $e){
+            return[];
+        }
     }
+
+    public function registrarPropiedadModel($data){
+        $insertPropiedad = $this->db->connect();
+        $queryInsertarPropiedad = $insertPropiedad->prepare("INSERT INTO tec_propiedad_intelectual
+        (
+            fk_tecnologia,
+            titularPropiedad,
+            inventores,
+            fk_tipoPropiedad,
+            tituloPropiedad,
+            resumenPropiedad,
+            estatus,
+            regionPropiedad,
+            numeroPatente,
+            link
+        ) 
+        VALUES
+        (
+            '".$_SESSION['techID']."',
+            '".$data['titularPropiedad']."',
+            '".$data['inventoresPropiedad']."',
+            '".$data['tipoPropiedad']."',
+            '".$data['tituloPropiedad']."',
+            '".$data['resumenPropiedad']."',
+            '".$data['estatusPropiedad']."',
+            '".$data['regionPropiedad']."',
+            '".$data['numeroPatentePropiedad']."',
+            '".$data['linkPropiedad']."'
+        )");
+        try{
+            $envio = $queryInsertarPropiedad->execute();
+            if($envio){
+				return $insertPropiedad->lastInsertId(); //el ultimo Id de la tabla insertada
+			}else{
+				//print_r($queryInsertarPropiedad->errorInfo());
+                return "error";
+            }
+
+        }catch(PDOException $e){
+            //echo $e;
+            //echo 'data:('.$data['data'].')';
+            return null;
+
+        } 
+    }
+        
+        
+    
 }//End model
-?>
