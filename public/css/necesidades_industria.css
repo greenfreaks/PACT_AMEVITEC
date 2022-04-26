@@ -1,0 +1,105 @@
+/*=================Variables de Color=================*/
+:root {
+	--verde: #2AA65A;
+    --limon: #8DC63F;
+    --amarillo: #FFF200;
+    --naranja: #FAA61A;
+    --rosa: #D80B8C;
+    --morado: #92278F;
+    --marino: #2E3192;
+    --azul: #0072BC;
+
+    --primary: var(--morado);
+    --secondary: var(--rosa);
+    --cta: var(--rosa);
+    --bt-azul: var(--azul);
+}
+
+/*---------------------------------------*/
+/*-----------------CARDS-----------------*/
+/*---------------------------------------*/
+
+.cards_group{
+    width: 100%;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, auto);
+    grid-template-areas: "card_I         card_II       card_III"
+                         "card_IV        card_V        void";
+}
+
+.card_I{
+    grid-area: card_I;
+}
+.card_II{
+    grid-area: card_II;
+}
+.card_III{
+    grid-area: card_III;
+}
+.card_IV{
+    grid-area: card_IV;
+}
+.card_V{
+    grid-area: card_V;
+}
+.void{
+    grid-area: void;
+}
+
+.card{
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(1, auto);
+    grid-template-areas: "card_img"
+                         "card_text"
+                         "btn_pdf";
+}
+
+.card_img{
+    width: 100%;
+    grid-area: card_img;
+}
+.card_text{
+    grid-area: card_text;
+    padding-right: 10px;
+    padding-left: 20px;
+}
+
+.card_text p{
+    max-height: 150px;
+    overflow-y: scroll;
+}
+.btn_pdf{
+    grid-area: btn_pdf;
+}
+
+@media only screen and (max-width: 992px){
+
+}
+
+@media only screen and (max-width: 800px){
+    
+}
+@media only screen and (max-width: 600px){
+    .cards_group{
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, auto);
+    grid-template-areas: "card_I         card_II"       
+                         "card_III       card_IV"        
+                         "card_V         void";
+} 
+@media only screen and (max-width: 500px){
+    .cards_group{
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(1, auto);
+    grid-template-areas: "card_I"
+                         "card_II"       
+                         "card_III"       
+                         "card_IV"        
+                         "card_V"         
+                         "void";
+} 
+}

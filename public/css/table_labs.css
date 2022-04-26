@@ -1,0 +1,80 @@
+/*
+COLORES material 
+    #00838f cyan darken-3
+    #d32f2f red darken-2
+*/
+
+/*=================Variables de Color=================*/
+:root {
+  --verde: #2AA65A;
+  --limon: #8DC63F;
+  --amarillo: #FFF200;
+  --naranja: #FAA61A;
+  --rosa: #D80B8C;
+  --morado: #92278F;
+  --marino: #2E3192;
+  --azul: #0072BC;
+
+  --primary: var(--morado);
+  --secondary: var(--rosa);
+  --cta: var(--rosa);
+  --bt-azul: var(--azul);
+}
+
+/*Make icons elements not selectable*/
+
+i {
+  -webkit-user-select: none;
+  /* Safari 3.1+ */
+  -moz-user-select: none;
+  /* Firefox 2+ */
+  -ms-user-select: none;
+  /* IE 10+ */
+  user-select: none;
+  /* Standard syntax */
+}
+
+
+/*---------------------------------------------*/
+/*---------FILTROS DE BÚSQUEDA-----------------*/
+/*---------------------------------------------*/
+
+.filtros{
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, auto);
+    grid-template-areas:"searcher                      searcher                searcher" 
+                        "institucion_filter            ambito_filter           industria_filter";
+}
+.searcher{
+    grid-area: searcher;
+    width: 100%;
+    min-width: 500px;
+}
+.institucion_filter{
+    grid-area: institucion_filter;
+}
+.ambito_filter{
+    grid-area: ambito_filter;
+}
+.industria_filter{
+    grid-area: industria_filter;
+}
+
+/*-------------------------------------------*/
+/*----------------BUSCADOR-------------------*/
+/*-------------------------------------------*/
+
+.searcher_container{
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+
+
+
+
+
+

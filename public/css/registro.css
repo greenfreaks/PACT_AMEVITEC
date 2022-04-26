@@ -1,0 +1,22 @@
+/*
+COLORES material 
+    #00838f cyan darken-3
+    #d32f2f red darken-2
+*/
+
+/*=================Variables de Color=================*/
+:root {
+	  --verde: #2AA65A;
+    --limon: #8DC63F;
+    --amarillo: #FFF200;
+    --naranja: #FAA61A;
+    --rosa: #D80B8C;
+    --morado: #92278F;
+    --marino: #2E3192;
+    --azul: #0072BC;
+
+    --primary: var(--morado);
+    --secondary: var(--rosa);
+    --cta: var(--rosa);
+    --bt-azul: var(--azul);
+}
