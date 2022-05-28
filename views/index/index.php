@@ -3,52 +3,18 @@
         error_reporting(E_ERROR);
     ?>
 
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="description" content="Somos la Agencia Mexicana de Vinculación Tecnológica, una asociación civil sin fines de lucro dedicada a promover, gestionar y capacitar la vinculación entre empresas y universidades.">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>PACT</title>
-            <!--Import Google Icon Font-->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-        <!--Import jQuery before materialize.js-->
-        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-
-        <!-- Compiled and minified JavaScript -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-        <link rel="stylesheet" href="public/css/materialize.css">
-        <link rel="stylesheet" href="public/css/style.css">
-        <link rel="stylesheet" href="public/css/table_labs.css">
-
-
-       <!--<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">-->
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-        <title>
-        </title>
-    </head>
-    <body>
-
-    <div class="navbar-fixed">
-        <?php include "views/header.php";?>
-    </div>
-        <?php require 'views/sidenav.php'; ?>
+        <?php require "views/include_views/templates/html1.php"?>
 
         <div class="section wrapper">
             <div class="content_container">
-                <h5>Inventario de laboratorios y proyectos</h5>
+                <h5>Inventario de laboratorios y tecnologías</h5>
             <div id="chooseTables">
                 <h6>Utiliza estos botones para consultar el <b class="texto-marino"> Catálogo de las Instituciones de Educación Superior (IES)
                     y los Centros de Investigación y Desarrollo (Centros de I+D).</b>
-                    o bien, el <b class="texto-marino">inventario de sus laboratorios y proyectos.</b></h6>
+                    o bien, el <b class="texto-marino">inventario de sus laboratorios y tecnologías.</b></h6>
 
                 <a class="btn" href="directorio_ies">IES y Centros de I+D</a>
-                <a class="btn" href="#">Laboratorios y Proyectos</a>
+                <a class="btn" href="#">Laboratorios y Tecnologías</a>
             </div>
 
             <div id="listadoLabs">
@@ -112,14 +78,14 @@
             
             
             <section id="labsIng" class="lab_table table_container">
-                     <table class="table sticky" id="">
+                     <table class="table sticky bg_azul">
                         <thead>
                             <tr class="tr">
                                 <th style = "min-width: 400px;" class="center">Institución</th>
                                 <th class="center">Entidad</th>
                                 <th class="center">Ámbito</th>
                                 <th style = "min-width: 300px;" class="center">Área del conocimiento</th>
-                                <th style = "min-width: 300px;" class="center">Laboratorios y Líneas de investigación</th>
+                                <th style = "min-width: 300px;" class="center">Laboratorios y Tecnologías</th>
                                 <th style = "min-width: 400px;" class="center">Sectores Industriales que atiende</th>
                                 <th style = "min-width: 400px;" class="center">Equipamiento especializado</th>
                                 <th style = "min-width: 400px;" class="center">Servicios a la industria</th>
@@ -180,10 +146,4 @@
             </div>
             </div>
         </div>
-
-        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <script src="public/js/init.js"></script>
-
-    </body>
-    </html>
+        <?php require "views/include_views/templates/html2.php"?>

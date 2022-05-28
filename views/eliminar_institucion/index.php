@@ -11,6 +11,7 @@ if($result > 0){
     while($data = mysqli_fetch_array($query)){?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -20,8 +21,8 @@ if($result > 0){
 
     <!-- ALERTIFY JS -->
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
-    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css" />
+
     <!-- SWEET ALERT -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -31,14 +32,16 @@ if($result > 0){
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AMEVITEC - Beneficios para academia </title>
 </head>
+
 <body>
     <div class="navbar-fixed">
-        <?php include "views/header.php";?>
+        <?php require 'views/include_views/templates/header.php'; ?>
     </div>
     <div class="content_container">
         <h5>Eliminar institución</h5>
         <h5>Estás por eliminar la institución: <b><?php echo $data['nombre_institucion']?></b></h5>
-        <h6 class="negritas">Es muy importante que tengas en cuenta que si eliminas esta institución, también se eliminarán 
+        <h6 class="negritas">Es muy importante que tengas en cuenta que si eliminas esta institución, también se
+            eliminarán
             todos sus laboratorios y líneas de investigación.</h6>
         <div class="divider"></div>
 
@@ -75,33 +78,40 @@ if($result > 0){
         <h6>11. Código institucional</h6>
         <h6 style="color: var(--marino);" class="negritas"><?php echo $data["password"]?></h6> <br>
 
-        
+
 
 
         <form method="POST" id="form_delete_institucion">
-        <div>
-            <select name="id_institucion" id="" class="browser-default" >
-                <option value="<?php echo $data["id_institucion"];?>"><?php echo $data["nombre_institucion"];?></option>
-                <?php include "public/php/llenado_instituciones.php";?>
-            </select>
+            <div>
+                <select name="id_institucion" id="" class="browser-default">
+                    <option value="<?php echo $data["id_institucion"];?>"><?php echo $data["nombre_institucion"];?>
+                    </option>
+                    <?php include "public/php/llenado_instituciones.php";?>
+                </select>
 
-            <h6>1. Nombre de la institución.</h6>
-            <input class="laboratorio" name="laboratorio" value="<?php echo $data["nombre_institucion"]?>" required> <br>
-            <p>
-                <label>
-                    <input class="privacidad" name="privacidad" value="" type="checkbox"/>
-                    <span>He leído y aceptado los términos del <a href="http://www.amevitec.org/sections/privacidad.html" target="_blank" class="texto-azul">aviso de privacidad</a></span>
-                </label>
-            </p>
+                <h6>1. Nombre de la institución.</h6>
+                <input class="laboratorio" name="laboratorio" value="<?php echo $data["nombre_institucion"]?>" required>
+                <br>
+                <p>
+                    <label>
+                        <input class="privacidad" name="privacidad" value="" type="checkbox" />
+                        <span>He leído y aceptado los términos del <a
+                                href="http://www.amevitec.org/sections/privacidad.html" target="_blank"
+                                class="texto-azul">aviso de privacidad</a></span>
+                    </label>
+                </p>
             </div>
 
             <div class="password center">
-                <h6 class="texto-azul">Introduce el código que te proporcionó tu Coordinador del Inventario. (Puedes copiarlo y pegarlo)</h6>
-                <input type="password" class="password" name="password" placeholder="Introduce aquí la clave institucional" required class="center bold">
+                <h6 class="texto-azul">Introduce el código que te proporcionó tu Coordinador del Inventario. (Puedes
+                    copiarlo y pegarlo)</h6>
+                <input type="password" class="password" name="password"
+                    placeholder="Introduce aquí la clave institucional" required class="center bold">
             </div> <br>
 
             <div class="submit center">
-                <input type="submit" value="Eliminar" class="btn red darken-3 delete_lab" name="delete_institucion" onclick="return ConfirmSubmit()">
+                <input type="submit" value="Eliminar" class="btn red darken-3 delete_lab" name="delete_institucion"
+                    onclick="return ConfirmSubmit()">
                 <a href="index" class="btn">Regresar</a>
             </div>
 
@@ -118,18 +128,18 @@ if($result > 0){
     <script src="https://unpkg.com/materialize-stepper@3.0.0/dist/js/mstepper.min.js"></script>
     <script src="../../js/init.js"></script>
     <script type="text/javascript">
-        function ConfirmSubmit()
-        {
-            var respuesta = confirm("¿Estás seguro de querer enviar tus datos? Da clic en ACEPTAR para continuar o en CANCELAR para verificar tu información.");
-            if (respuesta == true) 
-            {
+        function ConfirmSubmit() {
+            var respuesta = confirm(
+                "¿Estás seguro de querer enviar tus datos? Da clic en ACEPTAR para continuar o en CANCELAR para verificar tu información."
+                );
+            if (respuesta == true) {
                 return true;
-            }else{
+            } else {
                 return false
             }
         }
     </script>
     <script src="public/js/evitar_reenvio.js"></script>
 </body>
-</html>
 
+</html>

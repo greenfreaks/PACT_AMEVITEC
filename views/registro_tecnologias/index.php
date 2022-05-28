@@ -1,34 +1,4 @@
-<!doctype html>
-<html>
-
-<head>
-
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="public/css/style.css">
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PACT Plataforma de Aceleración Comercial de Tecnologías </title>
-
-</head>
-
-<body>
-
-
-    <div class="navbar-fixed">
-        <nav>
-            <div class="nav-wrapper container">
-                <a class="brand-logo center">Mis tecnologías y patentes</a>
-                <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-            </div>
-        </nav>
-    </div>
-    <?php require 'views/sidenav.php'; ?>
-    
-
+<?php require "views/include_views/templates/html1.php"?>
     <div class="section wrapper">
         <div class="row">
             <div class="col s12 m6">
@@ -64,10 +34,6 @@
         </div>
     </div>
     
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="public/js/init.js"></script>
+    <?php require "views/include_views/templates/html2.php"?>
     <script src="public/js/dashboard.js"></script>
-</body>
 
-</html>

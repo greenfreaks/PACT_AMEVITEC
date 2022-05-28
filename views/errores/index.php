@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <?php require 'views/header.php'; ?>
+    <?php require 'views/include_views/templates/header.php'; ?>
 
     <div class="parallax-container">
         <div class="section no-pad-bot">
@@ -40,7 +40,9 @@
                         <div class="card-content center">
                             <i class="material-icons medium">contact_phone</i>
                             <h5><strong>Home</strong></h5>
-                            <p class="justify">Regresa a nuestra <a class=" negritas" href="index.html">pagina de inicio</a> y sigue los menus y links para encontrar la pagina que intentas acceder.</p>
+                            <p class="justify">Regresa a nuestra <a class=" negritas" href="index.html">pagina de
+                                    inicio</a> y sigue los menus y links para encontrar la pagina que intentas acceder.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -50,7 +52,8 @@
                             <i class="material-icons medium ">help</i>
                             <h5 class="center"><strong>Contactanos</strong></h5>
 
-                            <p class="justify">Contacta con nosotros, haciendo clic en el botón pulsante en la esquina inferior derecha. </p>
+                            <p class="justify">Contacta con nosotros, haciendo clic en el botón pulsante en la esquina
+                                inferior derecha. </p>
                             <!--                            <p class="justify">Consulta las <a class="negritas" href="faq.html">preguntas frecuentes</a> o contacta con nosotros, haciendo clic en el botón pulsante en la esquina inferior derecha. </p>-->
 
                         </div>
@@ -78,7 +81,6 @@
         gtag('js', new Date());
 
         gtag('config', 'UA-137988434-1');
-
     </script>
 
 </body>
