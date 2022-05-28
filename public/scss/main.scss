@@ -1,0 +1,24 @@
+// Base
+@import "base/colorVariables";
+@import "base/reset";
+
+// Layout
+@import "layout/header";
+@import "layout/navbar";
+@import "layout/footer";
+
+// Components
+@import "components/backgroundColors";
+@import "components/textColors";
+
+//Utilities
+@import "utilities/textEffects";
+@import "utilities/itemSizes";
+@import "utilities/buttons";
+@import "utilities/tables";
+@import "utilities/unknownFeatures";
+
+// Views
+@import "views/laboratorios";
+@import "views/necesidadesIndustria";
+

@@ -1,0 +1,107 @@
+// General Sizes
+.social-footer {
+	width: 20px;
+}
+
+.thumbnail {
+	height: 50vh !important;
+}
+
+.header-logo {
+	/*    height: 13vh;*/
+	height: 70%;
+	margin: 10px 0 7px 0;
+}
+
+.fab-img {
+	height: 60%;
+	width: auto;
+	position: absolute;
+	margin: auto;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.parallax-container {
+	min-height: 300px;
+	line-height: 0;
+	height: auto;
+	color: rgba(255, 255, 255, 0.9);
+}
+
+.parallax-container .section {
+	width: 100%;
+}
+
+.slider .indicators {
+	z-index: 98 !important;
+}
+
+.slider .indicators .indicator-item.active {
+	background-color: var(--rojo-tbr) !important;
+}
+
+.slider .slides li .caption {
+	top: 30%;
+}
+
+.big-container {
+	height: 300px;
+}
+
+.paralax-p {
+	line-height: 1.3;
+}
+
+.separacion {
+	margin-left: 15px;
+}
+
+.fab-img {
+	height: 60%;
+	width: auto;
+	position: absolute;
+	margin: auto;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+// Specific Sizes
+#main-slider {
+	height: 600px !important;
+}
+
+#main-slider .slides {
+	height: 100% !important;
+}
+
+.blue-indexnav {
+	z-index: 99;
+	position: fixed;
+	background-color: $azul !important;
+	padding: 0px 20px;
+}
+
+.indexnav {
+	z-index: 99;
+	position: fixed;
+	background: rgba(0, 0, 0, 0.1) !important;
+	padding: 0px 20px;
+}
+
+.indexnav li a:hover {
+	background: red;
+}
+
+.sidenav {
+	top: 65px;
+	width: 250px;
+}
+
+.wrapper {
+	padding-left: 250px;
+}

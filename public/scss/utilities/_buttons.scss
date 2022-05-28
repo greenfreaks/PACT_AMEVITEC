@@ -1,0 +1,32 @@
+.btn,
+.btn-large,
+.btn-small {
+	background-color: $azul;
+}
+
+.btn:hover,
+.btn-large:hover,
+.btn-small:hover {
+	background-color: $marino;
+}
+
+.boton-azul {
+	padding: 15px 25px;
+	font-size: 24px;
+	text-align: center;
+	cursor: pointer;
+	outline: none;
+	color: $blanco;
+	background-color: $azul;
+	border: none;
+	border-radius: 15px;
+}
+
+.boton-azul:hover {
+	background-color: $marino;
+}
+
+.boton-azul:active {
+	background-color: $marino;
+	transform: translateY(4px);
+}

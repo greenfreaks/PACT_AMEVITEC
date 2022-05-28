@@ -1,0 +1,225 @@
+
+
+.center{
+    text-align: center;
+}
+
+.error{
+    color: #ac2323;
+}
+
+
+/*Make icons elements not selectable*/
+
+i {
+	-webkit-user-select: none;
+	/* Safari 3.1+ */
+	-moz-user-select: none;
+	/* Firefox 2+ */
+	-ms-user-select: none;
+	/* IE 10+ */
+	user-select: none;
+	/* Standard syntax */
+}
+
+
+.blured {
+	opacity: 0.5;
+	background-color: white;
+}
+
+.cta-bg {
+	background-image: url(../img/bg/bg-cta.pn);
+	background-position: center;
+	background-size: cover;
+	border-radius: 10px;
+}
+
+.cta-bg-gray {
+	background-image: url(../img/bg/bg-cta-gray.jp);
+	background-position: center;
+	background-size: cover;
+	border-radius: 10px;
+}
+
+.cta-bg-gray > * {
+	color: $blanco;
+}
+
+.fullheight {
+	height: 90vh;
+}
+
+/*Tamaño de celda para objetivos ONU*/
+.celda {
+	height: 15vh;
+}
+
+
+/*=================MEDIDAS GENERALES=================*/
+
+/*Container especial*/
+
+.header {
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+/*================BOTONES============*/
+
+.round-corner {
+	border-radius: 40px;
+}
+
+.cta {
+	background-color: var(--rojo-50-tbr);
+	border-radius: 40px;
+	text-transform: uppercase;
+
+	width: 260px;
+	height: 70px;
+	margin: 4px;
+	padding: 5px;
+	line-height: 60px;
+	font-size: 18px;
+	font-weight: 400;
+}
+
+.cta i {
+	padding-top: 1px;
+	height: 60px;
+	width: 60px;
+	color: var(--rojo-50-tbr);
+	background: white;
+	border-radius: 50%;
+	font-size: 3rem;
+}
+
+.cta:hover {
+	background-color: var(--gris-claro) !important;
+	color: var(--negro);
+}
+
+.cta:hover i {
+	color: var(--negro);
+}
+
+.vineta {
+	padding: 5px 5px;
+	width: 70px;
+	height: 70px;
+	background-color: var(--azul-tbr);
+	border-radius: 50%;
+}
+
+.input-container {
+	width: 80%;
+	border-radius: 40px;
+}
+
+.input-container .input-field {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.diagrama svg {
+	width: 100%;
+	height: 300px;
+}
+
+.mobile-logo img {
+	margin-top: 5px;
+	height: 80%;
+}
+
+.collapsible li.active .expand {
+	-ms-transform: rotate(180deg);
+	/* IE 9 */
+	-webkit-transform: rotate(180deg);
+	/* Chrome, Safari, Opera */
+	transform: rotate(180deg);
+}
+
+
+/*------------------------------------------*/
+/*------------------------------------------*/
+/*------------------------------------------*/
+.navi{
+	background-color: #0072BC;
+}
+.navi .navi__logo a img, .navi .navi__texto a{
+	display: inline-block;
+}
+.navi .navi__logo a img{
+	max-width: 150px;
+}
+/*------------------------------------------*/
+/*-----------------NAVBAR-------------------------*/
+/*------------------------------------------*/
+
+
+/*======================index==================*/
+
+.video {
+	height: 50vh !important;
+	width: auto;
+	margin-bottom: 50px;
+}
+
+/* Hide Play button + controls on iOS */
+video::-webkit-media-controls {
+	display: none !important;
+}
+
+.thevideo {
+	height: 50vh !important;
+	width: auto;
+}
+
+.pmethods {
+	display: block;
+	width: 178px;
+	height: 23px;
+	margin: -10px auto 0px;
+	background: url(https://secure.mlstatic.com/mptools/assets/MP-payButton-logos-mex.png)
+		0px -29px;
+	background-position: 0px -29px;
+}
+
+/*=================RESPONSIVIDAD MOBIL=================*/
+@media only screen and (max-width: 992px) {
+
+    .wrapper {
+        padding-left: 0;
+    }
+
+    .valign-wrapper {
+        display: inherit;
+    }
+
+    .big-container {
+        height: 400px;
+    }
+
+    .header-logo {
+        display: block;
+        height: 38px;
+        margin: 10px 0 7px 0;
+    }
+
+    .cta {
+        background-color: var(--rojo-50-tbr);
+        border-radius: 40px;
+        text-transform: uppercase;
+
+        width: 260px;
+        height: 70px;
+        margin: 4px;
+        padding: 5px;
+        line-height: 60px;
+        font-size: 18px;
+        font-weight: 400;
+    }
+}
+
+
