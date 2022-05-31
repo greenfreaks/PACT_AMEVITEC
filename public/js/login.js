@@ -19,7 +19,7 @@ $(document).ready(function() {
 						html: `<span class="white-text">Proceso completo</span>`
 					});
 					$('#login-form').trigger('reset');
-					window.location.href = '/PACT/';
+					window.location.href = '/PACT-AMEVITEC/';
 					//window.location.href = "localhost/PACT";
 				}
 			},

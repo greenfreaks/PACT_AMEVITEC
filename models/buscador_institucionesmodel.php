@@ -5,10 +5,12 @@ class Instituciones{
     private $Servidor;
     private $Usuario;
     private $Clave;
+    
     function getInstituciones(){
         $sql = "SELECT * FROM uci_instituciones ins
-        INNER JOIN uci_tipo_institucion tipo ON ins.tipo_institucion = tipo.id_tipo_institucion
+        INNER JOIN uci_tipo_institucion tipo ON ins.fk_tipo_institucion = tipo.id_tipo_institucion
         INNER JOIN estado est ON ins.estado = est.idestado
+        WHERE authorized_for_capacidades = 1
         ORDER BY nombre_institucion";
         $datos = array();
 

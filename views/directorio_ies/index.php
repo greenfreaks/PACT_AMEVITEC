@@ -51,7 +51,7 @@ error_reporting(E_ERROR);
                     <tr class="active-row">
                         <td class="col_sticky center"><?php echo $ins['nombre_institucion'];?></td>
                         <td class="col_sticky center"><?php echo $ins['id_institucion'];?></td>
-                        <td class="col_sticky center"><?php echo $ins['tipo_institucion'];?></td>
+                        <td class="col_sticky center"><?php echo $ins['nombre_tipo_institucion'];?></td>
                         <td class="center"><?php echo $ins['estado'];?></td>
 
                         <td>
