@@ -112,7 +112,7 @@ class registroPropiedadIntelectualModel extends Model{
             tituloPropiedad,
             resumenPropiedad,
             estatus,
-            regionPropiedad,
+            -- regionPropiedad,
             numeroPatente,
             link
         ) 
@@ -125,7 +125,6 @@ class registroPropiedadIntelectualModel extends Model{
             '".$data['tituloPropiedad']."',
             '".$data['resumenPropiedad']."',
             '".$data['estatusPropiedad']."',
-            '".$data['regionPropiedad']."',
             '".$data['numeroPatentePropiedad']."',
             '".$data['linkPropiedad']."'
         )");
@@ -144,6 +143,32 @@ class registroPropiedadIntelectualModel extends Model{
             return null;
 
         } 
+    }
+
+    // Función para registrar la región de la propiedad Intelectual
+    public function registrarRegionPropiedad($data){
+        $insertRegionPropiedad = $this->db->connect();
+        $queryInsertarRegionPropiedad = $insertRegionPropiedad->prepare(
+            "INSERT INTO tec_propiedad_intelectual_as_region
+            (
+                fk_tecnologia, 
+                fk_regionPropiedad
+            )
+            VALUES
+            (
+                '".$_SESSION['techID']."', 
+                '".$data['fk_regionPropiedad']."'
+            )");
+        try{
+            $envio_regionPropeidad = $queryInsertarRegionPropiedad->execute();
+            if($envio_regionPropeidad){
+                return $insertRegionPropiedad->lastInsertId();
+            }else{
+                return "error";
+            }
+        }catch(PDOException $e){
+            return null;
+        }
     }
         
         

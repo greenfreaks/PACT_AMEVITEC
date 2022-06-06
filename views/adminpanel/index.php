@@ -7,5 +7,4 @@
 </div>
 
 <?php require "views/include_views/templates/html2.php"?>
-<script src="public/js/init.js"></script>
 <script src="public/js/adminPanel.js"></script>

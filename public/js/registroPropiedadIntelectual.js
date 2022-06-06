@@ -1,14 +1,4 @@
 $(document).ready(function () {
-    // window.onbeforeunload = function () {
-    //     if (!data_saved) {
-    //         console.error('datos sin guardar');
-    //         return 'Datos sin guardar ¿Estás seguro que desea salir?';
-    //     } else {
-    //         return;
-    //     }
-    // }
-
-    // LLenar Select de sectores Industriales
     let sectores;
     $.getJSON('registroPropiedadIntelectual/getSectores', function (data) {
         sectores = data;
@@ -80,50 +70,36 @@ $(document).ready(function () {
 
     }); // End Function
 
-    //Llenar Select de Regiones de la Propiedad Intelectual
-    let regionDeLaPropiedad;
-    $.getJSON('registroPropiedadIntelectual/getRegionesPropiedadController', function (data){
-        regionDeLaPropiedad = data;
-        $('#form__registroPropiedad--regionPropiedad').append(
-            $('<option>', {
-                text: 'Selecciona la región de tu protección',
-                disabled: true,
-                selected: true
-            })
-        );
-        for(let regProp of regionDeLaPropiedad.regionPropiedad){
-            $('#form__registroPropiedad--regionPropiedad').append(
-                $('<option>', {
-                    value: regProp.id,
-                    text: regProp.nombre
-                })
-            );
-            $('#form__registroPropiedad--regionPropiedad').formSelect();
-        }
-    }); // END FUNCTION
-
-    //Se obtienen los datos del formulario
-
     $('#form__registroPropiedad').on('submit', function (e) {
         e.preventDefault();
+        let titularPropiedad = $('#form__registroPropiedad--titularPropiedad');
+        let inventoresPropiedad = $('#form__registroPropiedad--inventoresPropiedad');
+        let resumenPropiedad = $('#form__registroPropiedad--resumenPropiedad');
+        let tipoPropiedad = $('#form__registroPropiedad--tipoPropiedad');
+        let tituloPropiedad = $('#form__registroPropiedad--tituloPropiedad');
+        let estatusPropiedad = $('#form__registroPropiedad--estatusPropiedad');
+        // let regionPropiedad = $('#form__registroPropiedad--regionPropiedad');
+        let numeroPatentePropiedad = $('#form__registroPropiedad--numeroPatentePropiedad');
+        let linkPropiedad = $('#form__registroPropiedad--linkPropiedad');
+
+        
 
         $('#form__registroPropiedad--submit').attr('disabled', true);
         let formdata = {};
-        formdata['titularPropiedad'] = $('#form__registroPropiedad--titularPropiedad').val();
-        formdata['inventoresPropiedad'] = $('#form__registroPropiedad--inventoresPropiedad').val();
-        formdata['resumenPropiedad'] = $('#form__registroPropiedad--resumenPropiedad').val();
-        formdata['tipoPropiedad'] = $('#form__registroPropiedad--tipoPropiedad').val();
-        formdata['tituloPropiedad'] = $('#form__registroPropiedad--tituloPropiedad').val();
+        formdata['titularPropiedad'] = titularPropiedad.val();
+        formdata['inventoresPropiedad'] = inventoresPropiedad.val();
+        formdata['resumenPropiedad'] = resumenPropiedad.val();
+        formdata['tipoPropiedad'] = tipoPropiedad.val();
+        formdata['tituloPropiedad'] = tituloPropiedad.val();
+        formdata['estatusPropiedad'] = estatusPropiedad.val();
 
-        formdata['sectoresPropiedad'] = [];
-        $('input[type=checkbox][name=sectoresPropiedad]:checked').each(function () {
-            formdata['sectorePropiedad'].push($(this).attr('value'));
-        });
-
-        formdata['estatusPropiedad'] = $('#form__registroPropiedad--estatusPropiedad').val();
-        formdata['regionPropiedad'] = $('#form__registroPropiedad--regionPropiedad').val();
-        formdata['numeroPatentePropiedad'] = $('#form__registroPropiedad--numeroPatentePropiedad').val();
-        formdata['linkPropiedad'] = $('#form__registroPropiedad--linkPropiedad').val();
+        formdata['fk_regionPropiedad'] = [];
+        $('input[type=checkbox][name=fk_regionPropiedad]:checked').each(function() {
+			formdata['fk_regionPropiedad'].push($(this).attr('val'));
+		});
+        //formdata['regionPropiedad'] = regionPropiedad;
+        formdata['numeroPatentePropiedad'] = numeroPatentePropiedad.val();
+        formdata['linkPropiedad'] = linkPropiedad.val();
 
         console.log(formdata);
 
@@ -144,11 +120,11 @@ $(document).ready(function () {
                     console.log(data.msg);
                     $('#form__registroPropiedad').trigger('reset');
                     M.toast({
-                        html: '¡Datos Insertados de forma Correcta!',
+                        html: '¡Datos Insertados de forma Correcta! Redirigiendo...',
                         completeCallback: function () {
                             console.error('Your toast was dismissed');
                             $('#form__registroPropiedad--submit').attr('disabled', false);
-                            //window.location.href = '/';
+                            window.location.href = 'buscadorPropiedadIntelectual';
                         }
                     });
                 }

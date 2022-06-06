@@ -102,7 +102,7 @@ class registroPropiedadIntelectual extends Controller{
             $data['tituloPropiedad'] = isset($_POST['tituloPropiedad']) ? $_POST['tituloPropiedad'] : NULL;
             $data['resumenPropiedad'] = isset($_POST['resumenPropiedad']) ? $_POST['resumenPropiedad'] : NULL;
             $data['estatusPropiedad'] = isset($_POST['estatusPropiedad']) ? $_POST['estatusPropiedad'] : NULL;
-            $data['regionPropiedad'] = isset($_POST['regionPropiedad']) ? $_POST['regionPropiedad'] : NULL;
+            $data['fk_regionPropiedad'] = isset($_POST['fk_regionPropiedad']) ? $_POST['fk_regionPropiedad'] : NULL;
             $data['numeroPatentePropiedad'] = isset($_POST['numeroPatentePropiedad']) ? $_POST['numeroPatentePropiedad'] : NULL;
             $data['linkPropiedad'] = isset($_POST['linkPropiedad']) ? $_POST['linkPropiedad'] : NULL;
 
@@ -113,7 +113,7 @@ class registroPropiedadIntelectual extends Controller{
                 is_NULL($data['tituloPropiedad']) ||
                 is_NULL($data['resumenPropiedad']) ||
                 is_NULL($data['estatusPropiedad']) ||
-                is_NULL($data['regionPropiedad']) ||
+                is_NULL($data['fk_regionPropiedad']) ||
                 is_NULL($data['numeroPatentePropiedad']) ||
                 is_NULL($data['linkPropiedad'])
             ){
@@ -121,7 +121,7 @@ class registroPropiedadIntelectual extends Controller{
                 $result ['message'] = "Dato obligatorio no proporcionado";
             }else{
                 $idTecnologia = $_SESSION['techID'];
-                $resultiado = $this->model->registrarPropiedadModel([
+                $result = $this->model->registrarPropiedadModel([
                     'fk_tecnologia' => $idTecnologia,
                     'titularPropiedad' => $data['titularPropiedad'],
                     'inventoresPropiedad' => $data['inventoresPropiedad'],
@@ -129,16 +129,16 @@ class registroPropiedadIntelectual extends Controller{
                     'tituloPropiedad' => $data['tituloPropiedad'],
                     'resumenPropiedad' => $data['resumenPropiedad'],
                     'estatusPropiedad' => $data['estatusPropiedad'],
-                    'regionPropiedad' => $data['regionPropiedad'],
+                    // 'regionPropiedad' => $data['regionPropiedad'],
                     'numeroPatentePropiedad' => $data['numeroPatentePropiedad'],
                     'linkPropiedad' => $data['linkPropiedad']
 
                 ]);
-
-                if($resultiado != 'error'){
-                    $result ['error'] = false;
-                    $result ['mensaje'] = "Datos insertados";
-                    $result ['sessionActive'] = isset($_SESSION['userId']);
+                foreach($data['fk_regionPropiedad'] as $valueRegion){
+                    $this->model->registrarRegionPropiedad([
+                        'fk_tecnologia' => $idTecnologia,
+                        'fk_regionPropiedad' => $valueRegion    
+                    ]);
                 }
             }
         }else{
