@@ -108,7 +108,7 @@
             <!-- Numero de la patente -->
             <div class="input-field col l4 s12 ">
                 <i class="material-icons prefix">tag</i>
-                <input id="form__registroPropiedad--numeroPatentePropiedad" name="numeroPatentePropiedad" type="number"
+                <input id="form__registroPropiedad--numeroPatentePropiedad" name="numeroPatentePropiedad" type="text"
                     class="validate" required>
                 <label for="form__registroPropiedad--numeroPatentePropiedad">No. de patente / solicitud /
                     registro...</label>
